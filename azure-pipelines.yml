@@ -12,10 +12,17 @@ variables:
   azureSubscription: '24cd747f-4ca3-43d5-9311-cc0d4f044835'
 
   # Web app name
-  webAppName: ''
+  webAppName: 'nodejs-cicd-16353'
 
   # Environment name
-  environmentName: ''
+  environmentName: 'nodejs-cicd-16353'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: '24cd747f-4ca3-43d5-9311-cc0d4f044835'
+    appType: 'webAppLinux'
+    WebAppName: 
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
